@@ -1,0 +1,20 @@
+<div style="width: 700px;margin-top: 50px;margin-left: auto;margin-right: auto;">
+    <table class="table table-hover">
+        <thead class="tr-color">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let no = index; let row; of: companiesList">
+                <th>{{ no + 1 }}</th>
+                <td>{{ row.name }}</td>
+                <td>{{ row.contactNumber }}</td>
+                <td>Coming Soon</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
