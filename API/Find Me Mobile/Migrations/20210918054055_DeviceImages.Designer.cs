@@ -4,14 +4,16 @@ using Find_Me_Mobile.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Find_Me_Mobile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210918054055_DeviceImages")]
+    partial class DeviceImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -251,8 +253,7 @@ namespace Find_Me_Mobile.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DeviceId")
-                        .IsUnique();
+                    b.HasIndex("DeviceId");
 
                     b.ToTable("DeviceDetails");
                 });
@@ -431,8 +432,8 @@ namespace Find_Me_Mobile.Migrations
             modelBuilder.Entity("Find_Me_Mobile.Models.DeviceDetails", b =>
                 {
                     b.HasOne("Find_Me_Mobile.Models.Devices", "Device")
-                        .WithOne("DeviceDetails")
-                        .HasForeignKey("Find_Me_Mobile.Models.DeviceDetails", "DeviceId")
+                        .WithMany("DeviceDetails")
+                        .HasForeignKey("DeviceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

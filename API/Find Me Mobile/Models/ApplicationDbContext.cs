@@ -12,5 +12,9 @@ namespace Find_Me_Mobile.Models
         }
 
         public DbSet<Companies> Companies { get; set; }
+        public DbSet<Devices> Devices { get; set; }
+        public DbSet<DeviceDetails> DeviceDetails { get; set; }
+        public DbSet<DeviceImages> DeviceImages { get; set; }
+
     }
 }

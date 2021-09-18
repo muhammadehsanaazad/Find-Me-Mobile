@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Find_Me_Mobile.ViewModels
 {
@@ -13,6 +12,12 @@ namespace Find_Me_Mobile.ViewModels
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public SignInBindingModel()
+        {
+            Email = "user@findmobile.com";
+            Password = "user@find";
+        }
     }
 
     public class SignUpBindingModel
@@ -45,6 +50,6 @@ namespace Find_Me_Mobile.ViewModels
         public string Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public long ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
     }
 }

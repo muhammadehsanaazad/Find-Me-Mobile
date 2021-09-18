@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Find_Me_Mobile.Models
 {
@@ -8,6 +9,7 @@ namespace Find_Me_Mobile.Models
         public string Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public long? ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
+        public virtual ICollection<Devices> Devices { get; set; }
     }
 }
