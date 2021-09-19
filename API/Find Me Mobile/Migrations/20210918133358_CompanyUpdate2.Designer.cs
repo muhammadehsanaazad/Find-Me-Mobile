@@ -4,14 +4,16 @@ using Find_Me_Mobile.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Find_Me_Mobile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210918133358_CompanyUpdate2")]
+    partial class CompanyUpdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,19 +136,7 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Accelerometer")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AmbientLightSensor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Aperture")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Audio")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AudioPlayback")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AverageRating")
@@ -164,16 +154,10 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("CPU")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Camera")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Capacity")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Card")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Charging")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Chipset")
@@ -186,12 +170,10 @@ namespace Find_Me_Mobile.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DeviceId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Dimensions")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ECompass")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Extra")
@@ -200,16 +182,10 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("ExtraFeatures")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FM")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Features")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Fingerprint")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Flash")
+                    b.Property<string>("Front")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("G2Band")
@@ -233,10 +209,7 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("Games")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GyroscopeSensor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
+                    b.Property<string>("Main")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Messaging")
@@ -245,43 +218,19 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("NFC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OTG")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OperatingSystem")
+                    b.Property<string>("OS")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Processor")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Protection")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProximitySensor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ram")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Resolution")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Rom")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SIM")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SIMSlotType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SceneModes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Screen")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sensors")
@@ -290,19 +239,10 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("Size")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("StandbyMode")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Technology")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Torch")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TouchScreen")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UI")
@@ -311,31 +251,38 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("USB")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("VideoPlayback")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VideoRecording")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VoiceRecording")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("WLAN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Weight")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WiFi")
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceId")
+                        .IsUnique();
+
+                    b.ToTable("DeviceDetails");
+                });
+
+            modelBuilder.Entity("Find_Me_Mobile.Models.DeviceImages", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DeviceId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DeviceId")
-                        .IsUnique()
-                        .HasFilter("[DeviceId] IS NOT NULL");
+                    b.HasIndex("DeviceId");
 
-                    b.ToTable("DeviceDetails");
+                    b.ToTable("DeviceImages");
                 });
 
             modelBuilder.Entity("Find_Me_Mobile.Models.Devices", b =>
@@ -344,13 +291,8 @@ namespace Find_Me_Mobile.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CompanyId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -363,8 +305,8 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdationDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("PrimaryImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -508,7 +450,20 @@ namespace Find_Me_Mobile.Migrations
                 {
                     b.HasOne("Find_Me_Mobile.Models.Devices", "Device")
                         .WithOne("DeviceDetails")
-                        .HasForeignKey("Find_Me_Mobile.Models.DeviceDetails", "DeviceId");
+                        .HasForeignKey("Find_Me_Mobile.Models.DeviceDetails", "DeviceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Device");
+                });
+
+            modelBuilder.Entity("Find_Me_Mobile.Models.DeviceImages", b =>
+                {
+                    b.HasOne("Find_Me_Mobile.Models.Devices", "Device")
+                        .WithMany("DeviceImages")
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Device");
                 });
@@ -517,7 +472,9 @@ namespace Find_Me_Mobile.Migrations
                 {
                     b.HasOne("Find_Me_Mobile.Models.Companies", "Company")
                         .WithMany("Devices")
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Company");
                 });
@@ -581,6 +538,8 @@ namespace Find_Me_Mobile.Migrations
             modelBuilder.Entity("Find_Me_Mobile.Models.Devices", b =>
                 {
                     b.Navigation("DeviceDetails");
+
+                    b.Navigation("DeviceImages");
                 });
 #pragma warning restore 612, 618
         }

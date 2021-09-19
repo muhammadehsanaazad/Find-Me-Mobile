@@ -33,7 +33,9 @@ namespace Find_Me_Mobile.Controllers
             {
                 Id = Guid.NewGuid().ToString(),
                 Name = model.Name,
-                ContactNumber = model.ContactNumber
+                ContactNumber = model.ContactNumber,
+                CreationDate = DateTime.Now,
+                UpdationDate = DateTime.Now
             };
 
             await _applicationDbContext.AddAsync(account);
@@ -56,6 +58,7 @@ namespace Find_Me_Mobile.Controllers
 
             company.Name = model.Name;
             company.ContactNumber = model.ContactNumber;
+            company.UpdationDate = DateTime.Now;
 
             await _applicationDbContext.SaveChangesAsync();
 

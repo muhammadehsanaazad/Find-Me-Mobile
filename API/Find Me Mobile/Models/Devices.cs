@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Find_Me_Mobile.Models
@@ -10,9 +10,13 @@ namespace Find_Me_Mobile.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        public string Model { get; set; }
+        public string Price { get; set; }
+        public string Image { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime UpdationDate { get; set; }
         public string CompanyId { get; set; }
         public virtual Companies Company { get; set; }
         public virtual DeviceDetails DeviceDetails { get; set; }
-        public virtual ICollection<DeviceImages> DeviceImages { get; set; }
     }
 }
