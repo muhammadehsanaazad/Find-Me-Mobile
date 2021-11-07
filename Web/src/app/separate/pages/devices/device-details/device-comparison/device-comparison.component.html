@@ -1,0 +1,909 @@
+<div style="width: 1200px;margin-top: 50px;margin-left: auto;margin-right: auto;">
+  <div class="mb-4">
+    <div class="row">
+      <div class="col-1 mr-5 pr-1"></div>
+      <div class="col-10">
+        <div class="row">
+          <div class="col-3 text-center">
+            <div class="form-group">
+              <select (change)="getDeviceToCompare($event.target, 1)" class="form-control" data-width="100%"
+                [(ngModel)]="deviceId">
+                <option value="" selected disabled>Compare Width</option>
+                <option *ngFor="let row; of: devicesList" [value]="row.id">{{row.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3 text-center">
+            <div class="form-group">
+              <select (change)="getDeviceToCompare($event.target, 2)" class="form-control" data-width="100%">
+                <option value="" selected disabled>Compare Width</option>
+                <option *ngFor="let row; of: devicesList" [value]="row.id">{{row.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3 text-center">
+            <div class="form-group">
+              <select (change)="getDeviceToCompare($event.target, 3)" class="form-control" data-width="100%">
+                <option value="" selected disabled>Compare Width</option>
+                <option *ngFor="let row; of: devicesList" [value]="row.id">{{row.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3 text-center">
+            <div class="form-group">
+              <select (change)="getDeviceToCompare($event.target, 4)" class="form-control" data-width="100%">
+                <option value="" selected disabled>Compare Width</option>
+                <option *ngFor="let row; of: devicesList" [value]="row.id">{{row.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 mr-5 pr-1"></div>
+      <div class="col-10">
+        <div class="row">
+          <div class="col-3 text-center">
+            <div *ngIf="device">
+              <img class="image-comparison" [src]="device?.image">
+              <h4>{{device.name}}
+                ({{device.company.name}})</h4>
+              <h4>{{device.deviceDetails.ram}},
+                {{device.deviceDetails.rom}}</h4>
+            </div>
+          </div>
+          <div class="col-3 text-center">
+            <div *ngIf="device2">
+              <img class="image-comparison" [src]="device2?.image">
+              <h4>{{device2.name}}
+                ({{device2.company.name}})</h4>
+              <h4>{{device2.deviceDetails.ram}},
+                {{device2.deviceDetails.rom}}</h4>
+            </div>
+          </div>
+          <div class="col-3 text-center">
+            <div *ngIf="device3">
+              <img class="image-comparison" [src]="device3?.image">
+              <h4>{{device3.name}}
+                ({{device3.company.name}})</h4>
+              <h4>{{device3.deviceDetails.ram}},
+                {{device3.deviceDetails.rom}}</h4>
+            </div>
+          </div>
+          <div class="col-3 text-center">
+            <div *ngIf="device4">
+              <img class="image-comparison" [src]="device4?.image">
+              <h4>{{device4.name}}
+                ({{device4.company.name}})</h4>
+              <h4>{{device4.deviceDetails.ram}},
+                {{device4.deviceDetails.rom}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="device">
+      <div class="row border border-secondary rounded">
+        <div class="col-2 font-weight-bold">OS</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.operatingSystem}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.operatingSystem}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.operatingSystem}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.operatingSystem}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Processor</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.processor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.processor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.processor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.processor}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">CPU</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.cpu}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.cpu}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.cpu}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.cpu}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">GPU</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.gpu}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.gpu}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.gpu}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.gpu}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Chipset</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.chipset}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.chipset}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.chipset}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.chipset}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">SIM</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.sim}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.sim}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.sim}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.sim}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">SIM Slot Type</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.simSlotType}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.simSlotType}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.simSlotType}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.simSlotType}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Screen</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.screen}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.screen}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.screen}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.screen}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Touch Screen</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.touchScreen}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.touchScreen}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.touchScreen}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.touchScreen}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Touch Screen Type</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.type}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.type}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.type}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.type}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Screen Modes</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.sceneModes}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.sceneModes}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.sceneModes}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.sceneModes}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">2G Band</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.g2Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.g2Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.g2Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.g2Band}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">3G Band</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.g3Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.g3Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.g3Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.g3Band}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">4G Band</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.g4Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.g4Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.g4Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.g4Band}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">5G Band</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.g5Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.g5Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.g5Band}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.g5Band}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Resolution</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.resolution}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.resolution}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.resolution}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.resolution}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Camera</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.camera}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.camera}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.camera}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.camera}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Aperture</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.aperture}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.aperture}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.aperture}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.aperture}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Bluetooth</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.bluetooth}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.bluetooth}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.bluetooth}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.bluetooth}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">GPS</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.gps}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.gps}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.gps}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.gps}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">USB</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.usb}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.usb}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.usb}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.usb}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Audio</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.audioPlayback}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.audioPlayback}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.audioPlayback}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.audioPlayback}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Video</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.videoPlayback}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.videoPlayback}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.videoPlayback}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.videoPlayback}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Accelerometer</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.accelerometer}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.accelerometer}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.accelerometer}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.accelerometer}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Ambient Light Sensor</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.ambientLightSensor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.ambientLightSensor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.ambientLightSensor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.ambientLightSensor}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">E-Compass</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.eCompass}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.eCompass}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.eCompass}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.eCompass}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Proximity Sensor</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.proximitySensor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.proximitySensor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.proximitySensor}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.proximitySensor}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">FM</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.fm}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.fm}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.fm}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.fm}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Battery</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                {{device.deviceDetails.battery}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                {{device2.deviceDetails.battery}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                {{device3.deviceDetails.battery}}
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                {{device4.deviceDetails.battery}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border border-secondary rounded mt-2">
+        <div class="col-2 font-weight-bold">Reviews</div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-3">
+              <div *ngIf="device">
+                <a target="_blank" [href]="device.deviceDetails.reviews">View Reviews</a>
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device2">
+                <a target="_blank" [href]="device.deviceDetails.reviews">View Reviews</a>
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device3">
+                <a target="_blank" [href]="device.deviceDetails.reviews">View Reviews</a>
+              </div>
+            </div>
+            <div class="col-3">
+              <div *ngIf="device4">
+                <a target="_blank" [href]="device.deviceDetails.reviews">View Reviews</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

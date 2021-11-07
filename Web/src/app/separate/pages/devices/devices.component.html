@@ -1,0 +1,87 @@
+<app-nav-bar></app-nav-bar>
+<div style="width: 1000px;margin-top: 50px;margin-left: auto;margin-right: auto;">
+    <div class="row position-static">
+        <div class="col-1 pr-1"></div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <select class="form-control" data-width="100%" [(ngModel)]="bindingModels.filterModel.company">
+                            <option value="" selected>Filter By Company</option>
+                            <option *ngFor="let row; of: filtersList.company" [value]="row.id">{{row.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <select class="form-control" data-width="100%"
+                            [(ngModel)]="bindingModels.filterModel.operatingSystem">
+                            <option value="" selected>Filter By OS</option>
+                            <option *ngFor="let row; of: filtersList.operatingSystem" [value]="row.name">
+                                {{row.displayName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <select class="form-control" data-width="100%" [(ngModel)]="bindingModels.filterModel.ram">
+                            <option value="" selected>Filter By Ram</option>
+                            <option *ngFor="let row; of: filtersList.ram" [value]="row.name">{{row.displayName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <select class="form-control" data-width="100%" [(ngModel)]="bindingModels.filterModel.rom">
+                            <option value="" selected>Filter By Rom</option>
+                            <option *ngFor="let row; of: filtersList.rom" [value]="row.name">{{row.displayName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <select class="form-control" data-width="100%"
+                            [(ngModel)]="bindingModels.filterModel.screenType">
+                            <option value="" selected>Filter By Screen</option>
+                            <option *ngFor="let row; of: filtersList.screenType" [value]="row.name">{{row.displayName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <select class="form-control" data-width="100%" [(ngModel)]="bindingModels.filterModel.battery">
+                            <option value="" selected>Filter By Battery</option>
+                            <option *ngFor="let row; of: filtersList.battery" [value]="row.name">{{row.displayName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <select class="form-control" data-width="100%" [(ngModel)]="bindingModels.filterModel.category">
+                            <option value="" selected>Filter By Category</option>
+                            <option *ngFor="let row; of: filtersList.category" [value]="row.name">{{row.displayName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="form-group">
+                        <button (click)="getAllDevices()" class="btn btn-primary w-100">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div *ngFor="let no = index; let row; of: devicesList" class="col-6 mb-4">
+            <img [routerLink]="['/device-details', row.id]" class="image mb-2" [src]="row.image">
+            <h2>{{row.name}}</h2>
+            <h6>{{row.price}}</h6>
+        </div>
+    </div>
+</div>

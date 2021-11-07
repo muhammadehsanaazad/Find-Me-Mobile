@@ -70,6 +70,8 @@ namespace Find_Me_Mobile.Models
         public string VideoRecording { get; set; }
         public string VoiceRecording { get; set; }
         public string Location { get; set; }
+        public string Battery { get; set; }
+        public string Reviews { get; set; }
         public string DeviceId { get; set; }
         public virtual Devices Device { get; set; }
     }

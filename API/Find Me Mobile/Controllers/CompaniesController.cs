@@ -1,6 +1,7 @@
 ﻿using Find_Me_Mobile.Constants;
 using Find_Me_Mobile.Models;
 using Find_Me_Mobile.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -35,7 +36,7 @@ namespace Find_Me_Mobile.Controllers
                 Name = model.Name,
                 ContactNumber = model.ContactNumber,
                 CreationDate = DateTime.Now,
-                UpdationDate = DateTime.Now
+                UpdationDate = DateTime.Now.AddDays(-8)
             };
 
             await _applicationDbContext.AddAsync(account);
@@ -80,11 +81,13 @@ namespace Find_Me_Mobile.Controllers
             return Ok(new ApplicationResult { IsSuccess = true, Data = company });
         }
 
+        [AllowAnonymous]
         [HttpGet]
         [Route("GetAllCompanies")]
         public async Task<IActionResult> GetAll()
         {
             var companies = await _applicationDbContext.Companies.ToListAsync();
+
             return Ok(new ApplicationResult { IsSuccess = true, Data = companies });
         }
 
@@ -95,7 +98,7 @@ namespace Find_Me_Mobile.Controllers
             if (string.IsNullOrWhiteSpace(id))
                 return Ok(new ApplicationResult { IsSuccess = false, Message = ErrorMessages.InvalidInput });
 
-            var company = await _applicationDbContext.Companies.FirstOrDefaultAsync(e => e.Id == id);
+            var company = await _applicationDbContext.Companies.Include(e => e.Devices).ThenInclude(e => e.DeviceDetails).FirstOrDefaultAsync(e => e.Id == id);
 
             if (company is null)
                 return Ok(new ApplicationResult { IsSuccess = false, Message = ErrorMessages.InvalidInput });

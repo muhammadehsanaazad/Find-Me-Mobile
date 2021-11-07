@@ -1,0 +1,22 @@
+<nav class="navbar-light bg-light fixed-top">
+  <div class="container">
+    <ul class="list-inline d-flex justify-content-center">
+      <li *ngIf="token" class="list-inline-item">
+        <a [routerLink]="['/companies']" class="nav-link"><b>Home</b></a>
+      </li>
+      <li class="list-inline-item">
+        <a [routerLink]="['/devices/random']" class="nav-link"><b>Random</b></a>
+      </li>
+      <li *ngFor="let row; of: companiesList" class="list-inline-item">
+        <a [routerLink]="['/devices', row.id]" class="nav-link"><b>{{row.name}}</b></a>
+      </li>
+    </ul>
+    <div class="mt--5 d-flex justify-content-end" style="margin-top: -35px;">
+      <button *ngIf="token" (click)="authService.logout()" class="mb-2 btn btn-danger" style="margin-top: -13px;">Log
+        Out</button>
+      <button *ngIf="!token" [routerLink]="['/sign-in']" class="mb-2 btn btn-danger" style="margin-top: -13px;">Log
+        In</button>
+    </div>
+  </div>
+</nav>
+<br />

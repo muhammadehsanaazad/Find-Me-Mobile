@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.image {
+  width: 500px;
+  height: 500px;
+}
+
+.image:hover {
+  cursor: pointer;
+}
+
+.image-comparison {
+  width: 220px;
+  height: 220px;
+  padding-bottom: 10px;
+}

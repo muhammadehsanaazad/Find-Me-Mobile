@@ -7,11 +7,11 @@ namespace Find_Me_Mobile.Models
     {
         [Required]
         public string Id { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
         public string Model { get; set; }
         public string Price { get; set; }
+        public string Category { get; set; }
+        public string DeviceURL { get; set; }
         public string Image { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime UpdationDate { get; set; }

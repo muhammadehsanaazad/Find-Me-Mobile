@@ -17,10 +17,14 @@
     public static class Urls
     {
         public static string Samsung = "https://www.samsung.com/pk/smartphones/all-smartphones/";
+        public static string SamsungDevice = "https://www.samsung.com/pk/smartphones/";
         public static string Huawei = "https://consumer.huawei.com/pk/phones/";
+        public static string HuaweiDevice = "https://consumer.huawei.com/pk/phones/";
         public static string Xiaomi = "https://www.xiaomistore.pk/mi-phones/";
+        public static string XiaomiDevice = "https://www.xiaomistore.pk/specs/gid/";
         public static string Oppo = "https://www.oppo.com/pk/smartphones/";
-        public static string VivoDevices = "https://www.vivo.com/pk/products/";
+        public static string OppoDevice = "https://www.oppo.com/pk/smartphones/";
+        public static string Vivo = "https://www.vivo.com/pk/products/";
         public static string VivoDevice = "https://www.vivo.com/pk/products/param/";
     }
 

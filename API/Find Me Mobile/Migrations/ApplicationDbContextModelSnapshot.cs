@@ -152,6 +152,9 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("AverageRating")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Battery")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Bluetooth")
                         .HasColumnType("nvarchar(max)");
 
@@ -269,6 +272,9 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("Resolution")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Reviews")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Rom")
                         .HasColumnType("nvarchar(max)");
 
@@ -343,21 +349,25 @@ namespace Find_Me_Mobile.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CompanyId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DeviceURL")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")

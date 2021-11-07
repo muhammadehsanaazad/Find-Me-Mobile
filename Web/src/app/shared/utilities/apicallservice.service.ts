@@ -24,8 +24,10 @@ export class ApicallService {
         this.ngxSpinnerService.hide();
         if (result.isSuccess)
           return result;
-        else
+        else {
+          this.toastrService.warning(result.message);
           return null;
+        }
       }),
       catchError((err) => {
         this.ngxSpinnerService.hide();
@@ -42,8 +44,30 @@ export class ApicallService {
         this.ngxSpinnerService.hide();
         if (result.isSuccess)
           return result;
-        else
+        else {
+          this.toastrService.warning(result.message);
           return null;
+        }
+      }),
+      catchError((err) => {
+        this.ngxSpinnerService.hide();
+        this.toastrService.error('An error occurred while performing this operation. Please try again later!')
+        return throwError(err);
+      })
+    );
+  }
+
+  delete(url: string) {
+    this.ngxSpinnerService.show();
+    return this.httpClient.delete(environment.apiUrl + url).pipe(
+      map((result: any) => {
+        this.ngxSpinnerService.hide();
+        if (result.isSuccess)
+          return result;
+        else {
+          this.toastrService.warning(result.message);
+          return null;
+        }
       }),
       catchError((err) => {
         this.ngxSpinnerService.hide();

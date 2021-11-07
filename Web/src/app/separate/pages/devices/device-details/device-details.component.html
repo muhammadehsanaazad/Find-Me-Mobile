@@ -1,0 +1,143 @@
+<div style="width: 1000px;margin-top: 50px;margin-left: auto;margin-right: auto;">
+  <div *ngIf="device">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2>{{device.name}}
+          ({{device.company.name}})</h2>
+        <h2>{{device.deviceDetails.ram}},
+          {{device.deviceDetails.rom}}</h2>
+        <img class="image" [src]="device.image">
+        <div class="mb-4 mt-4">
+          <button [routerLink]="['/device-comparison', device.id]" type="button" class="btn btn-info">Compare</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2"> </div>
+      <div class="col-8 mb-5">
+        <div class="row border border-secondary rounded">
+          <div class="col-3 font-weight-bold">OS</div>
+          <div class="col-9">{{device.deviceDetails.operatingSystem}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Processor</div>
+          <div class="col-9">{{device.deviceDetails.processor}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">CPU</div>
+          <div class="col-9">{{device.deviceDetails.cpu}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">GPU</div>
+          <div class="col-9">{{device.deviceDetails.gpu}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Chipset</div>
+          <div class="col-9">{{device.deviceDetails.chipset}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">SIM</div>
+          <div class="col-9">{{device.deviceDetails.sim}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">SIM Slot Type</div>
+          <div class="col-9">{{device.deviceDetails.simSlotType}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Screen</div>
+          <div class="col-9">{{device.deviceDetails.screen}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Touch Screen</div>
+          <div class="col-9">{{device.deviceDetails.touchScreen}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Touch Screen Type</div>
+          <div class="col-9">{{device.deviceDetails.type}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Scene Modes</div>
+          <div class="col-9">{{device.deviceDetails.sceneModes}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">2G Band</div>
+          <div class="col-9">{{device.deviceDetails.g2Band}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">3G Band</div>
+          <div class="col-9">{{device.deviceDetails.g3Band}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">4G Band</div>
+          <div class="col-9">{{device.deviceDetails.g4Band}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">5G Band</div>
+          <div class="col-9">{{device.deviceDetails.g5Band}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Resolution</div>
+          <div class="col-9">{{device.deviceDetails.resolution}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Camera</div>
+          <div class="col-9">{{device.deviceDetails.camera}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Aperture</div>
+          <div class="col-9">{{device.deviceDetails.aperture}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Bluetooth</div>
+          <div class="col-9">{{device.deviceDetails.bluetooth}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">GPS</div>
+          <div class="col-9">{{device.deviceDetails.gps}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">USB</div>
+          <div class="col-9">{{device.deviceDetails.usb}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Audio</div>
+          <div class="col-9">{{device.deviceDetails.audioPlayback}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Video</div>
+          <div class="col-9">{{device.deviceDetails.videoPlayback}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Accelerometer</div>
+          <div class="col-9">{{device.deviceDetails.accelerometer}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Ambient Light Sensor</div>
+          <div class="col-9">{{device.deviceDetails.ambientLightSensor}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">E-Compass</div>
+          <div class="col-9">{{device.deviceDetails.eCompass}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Proximity Sensor</div>
+          <div class="col-9">{{device.deviceDetails.proximitySensor}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">FM</div>
+          <div class="col-9">{{device.deviceDetails.fm}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Battery</div>
+          <div class="col-9">{{device.deviceDetails.battery}}</div>
+        </div>
+        <div class="row border border-secondary rounded mt-2">
+          <div class="col-3 font-weight-bold">Reviews</div>
+          <div class="col-9">
+            <a target="_blank" [href]="device.deviceDetails.reviews">View Reviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

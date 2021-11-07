@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Find_Me_Mobile.ViewModels
 {
@@ -103,8 +104,38 @@ namespace Find_Me_Mobile.ViewModels
         public string Price { get; set; }
         public string AverageRating { get; set; }
     }
-    public class Item
+
+    public class GetDevicesBindingModel
     {
-        public string ItemName { get; set; }
+        public string Company { get; set; }
+        public string OperatingSystem { get; set; }
+        public string PriceFrom { get; set; }
+        public string PriceTo { get; set; }
+        public string Model { get; set; }
+        public string Ram { get; set; }
+        public string Rom { get; set; }
+        public string ScreenType { get; set; }
+        public string Battery { get; set; }
+        public string Category { get; set; }
     }
+
+    public class FiltersBindingModel
+    {
+        public List<FilterBindingModel> Company { get; set; }
+        public List<FilterBindingModel> OperatingSystem { get; set; }
+        public List<FilterBindingModel> Model { get; set; }
+        public List<FilterBindingModel> Ram { get; set; }
+        public List<FilterBindingModel> Rom { get; set; }
+        public List<FilterBindingModel> ScreenType { get; set; }
+        public List<FilterBindingModel> Battery { get; set; }
+        public List<FilterBindingModel> Category { get; set; }
+    }
+
+    public class FilterBindingModel
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string DisplayName { get; set; }
+    }
+
 }
